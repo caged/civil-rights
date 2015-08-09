@@ -1,0 +1,15 @@
+#!/usr/bin/env ruby
+
+require 'roo'
+
+out_csv_name = ARGV[0]
+in_xlsx_name = ARGV[1]
+
+puts out_csv_name
+puts in_xlsx_name
+
+xlsx = Roo::Spreadsheet.open(in_xlsx_name)
+
+xlsx.each_with_pagename do |name, sheet|
+  p sheet.row(2)[1]
+end
